@@ -61,15 +61,15 @@ classifier.fit(X_train, y_train, batch_size = 10, epochs = 100)
 y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5)
 
-# from sklearn.metrics import confusion_matrix
-# cm = confusion_matrix(y_test, y_pred)
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
 
-np.set_printoptions(precision=2)
 from sklearn.metrics import plot_confusion_matrix
-
-disp = plot_confusion_matrix(classifier, X_test, y_test, display_labels=['Yes','No'], cmap=plt.cm.Blues,normalize=none)
-
-
-plt.show()
+plot_confusion_matrix(classifier, X_test, y_test)
 
 
+
+# import seaborn as sns
+
+# cm = confusion_matrix(y_test, y_pred)
+# f = sns.heatmap(cm, annot=True)
